@@ -54,7 +54,7 @@ public class HelloSender {
 
                 try {
                     helloMessage = session.createTextMessage(objectMapper.writeValueAsString(message));
-                    helloMessage.setStringProperty("_type", "guru.springframework.sfgjms.model.HelloWorldMessage");
+                    helloMessage.setStringProperty("_type", "com.example.javamessagingsystem.model.HelloWorldMessage");
 
                     System.out.println("Sending Hello");
 
