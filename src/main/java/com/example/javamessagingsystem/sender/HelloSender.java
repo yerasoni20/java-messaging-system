@@ -1,7 +1,7 @@
 package com.example.javamessagingsystem.sender;
 
 import com.example.javamessagingsystem.config.JmsConfig;
-import com.example.javamessagingsystem.model.Message;
+import com.example.javamessagingsystem.model.HelloWorldMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,13 +23,13 @@ public class HelloSender {
 
         System.out.println("I'm Sending a message");
 
-        Message message = Message
+        HelloWorldMessage helloWorldMessage = HelloWorldMessage
                 .builder()
                 .id(UUID.randomUUID())
                 .message("Hello World!")
                 .build();
 
-        jmsTemplate.convertAndSend(JmsConfig.MY_QUEUE, message);
+        jmsTemplate.convertAndSend(JmsConfig.MY_QUEUE, helloWorldMessage);
 
         System.out.println("Message Sent!");
 
